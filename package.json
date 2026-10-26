@@ -1,0 +1,16 @@
+{
+  "name": "compass-affinity-partners-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "build:pages": "GITHUB_PAGES=true vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "vite": "^6.4.2"
+  }
+}
