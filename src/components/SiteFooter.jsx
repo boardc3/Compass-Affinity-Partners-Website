@@ -1,4 +1,4 @@
-import CompassMark from './CompassMark.jsx'
+import logoWhite from '../assets/compass-logo-white.svg'
 import { ArrowIcon } from './icons.jsx'
 import {
   homeSection,
@@ -6,7 +6,7 @@ import {
   INFO_EMAIL,
   PHONE_DISPLAY,
   PHONE_TEL,
-  SCENESET_URL,
+  AFR_URL,
 } from '../lib/paths.js'
 
 export default function SiteFooter() {
@@ -14,8 +14,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <CompassMark className="footer-mark" size={56} />
-          <p className="footer-brand-name">Compass Affinity Partners, LLC</p>
+          <img className="footer-logo" src={logoWhite} alt="Compass Affinity Partners, LLC" />
           <p>
             Building trusted partnerships that create meaningful value for organizations, strengthen
             communities, and improve the lives of the customers we serve.
@@ -50,9 +49,9 @@ export default function SiteFooter() {
       <div className="footer-base">
         <span>&copy; {new Date().getFullYear()} Compass Affinity Partners, LLC. All rights reserved.</span>
         <span>
-          Visualization partner:{' '}
-          <a href={SCENESET_URL} target="_blank" rel="noopener noreferrer">
-            SceneSet.ai
+          Also serving first responders:{' '}
+          <a href={AFR_URL} target="_blank" rel="noopener noreferrer">
+            AFRBenefits.com
           </a>
         </span>
       </div>

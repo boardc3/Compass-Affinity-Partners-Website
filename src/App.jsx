@@ -1,5 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Layout from './components/Layout.jsx'
+import afrLogo from './afr-benefits-logo.png'
+import heroMountains from './assets/hero-mountains.jpg'
+import panelHealthcare from './assets/panel-healthcare.jpg'
+import panelRealEstate from './assets/panel-real-estate.jpg'
+import panelSports from './assets/panel-sports.jpg'
+import CompassRose from './components/CompassRose.jsx'
 import {
   ShieldIcon,
   HeartIcon,
@@ -13,6 +19,7 @@ import {
   homeSection,
   SCENESET_URL,
   HSRN_URL,
+  AFR_URL,
   CONTACT_EMAIL,
   INFO_EMAIL,
   PHONE_DISPLAY,
@@ -23,64 +30,10 @@ import {
 /* Content                                                             */
 /* ------------------------------------------------------------------ */
 
-const slides = [
-  {
-    id: 'healthcare',
-    eyebrow: 'Exectras Healthcare Benefits',
-    title: (
-      <>
-        Affordable healthcare benefits for your business <em>and your people.</em>
-      </>
-    ),
-    lede:
-      'Compass Affinity Partners brings proven, business-class benefits to businesses and organizations of every size: 24/7 virtual healthcare, mental health support, prescription savings, and life insurance — powered by Exectras.',
-    cta: { label: 'Explore Healthcare Benefits', href: homeSection('healthcare') },
-    secondary: { label: 'Talk to Mike', href: homeSection('contact') },
-    visual: {
-      kicker: 'Powered by Exectras',
-      headline: 'Virtual Healthcare, Mental Health, Rx Savings & Life Insurance',
-      tags: ['24/7/365 Virtual Care', '$0 Urgent Care Copay', 'Up to 80% Rx Savings'],
-      tone: 'gold',
-    },
-  },
-  {
-    id: 'sceneset',
-    eyebrow: 'SceneSet.ai Visualization',
-    title: (
-      <>
-        Show the property, project, or product <em>before it exists.</em>
-      </>
-    ),
-    lede:
-      'AI-powered visualization from SceneSet.ai turns plans, photos, and ideas into photorealistic imagery and video — so businesses can sell, lease, and launch with confidence.',
-    cta: { label: 'See SceneSet.ai', href: homeSection('sceneset') },
-    secondary: { label: 'Visit SceneSet.ai', href: SCENESET_URL, external: true },
-    visual: {
-      kicker: 'AI-Powered Visualization',
-      headline: 'Properties · Projects · Products',
-      tags: ['Photorealistic Renders', 'Cinematic Video', 'Fast Turnaround'],
-      tone: 'light',
-    },
-  },
-  {
-    id: 'sports',
-    eyebrow: 'College Sports Marketing',
-    title: (
-      <>
-        Put your brand in front of fans <em>who show up.</em>
-      </>
-    ),
-    lede:
-      'Advertising, sponsorships, and promotional opportunities tied to college athletics through the Heritage Sports Radio Network (HSRN) — exposure that reaches loyal, engaged audiences.',
-    cta: { label: 'Explore Sports Marketing', href: homeSection('sports') },
-    secondary: { label: 'Talk to Mike', href: homeSection('contact') },
-    visual: {
-      kicker: 'Heritage Sports Radio Network',
-      headline: 'Advertising · Sponsorships · Promotions',
-      tags: ['Game-Day Exposure', 'Loyal Fan Audiences', 'Flexible Packages'],
-      tone: 'dark',
-    },
-  },
+const heroPanels = [
+  { id: 'healthcare', label: 'Healthcare Benefits', image: panelHealthcare },
+  { id: 'sceneset', label: 'Real Estate Visualization', image: panelRealEstate },
+  { id: 'sports', label: 'College Sports Marketing', image: panelSports },
 ]
 
 const proofStats = [
@@ -178,15 +131,15 @@ const sceneSetPoints = [
 const sportsPoints = [
   {
     title: 'Advertising',
-    body: 'Broadcast and digital placements across HSRN college athletics programming.',
+    body: 'Reach college sports audiences through broadcast and digital advertising opportunities across HSRN programming.',
   },
   {
     title: 'Sponsorships',
-    body: 'Align your brand with games, segments, and events that fans tune in for all season long.',
+    body: 'Connect your brand with college sports programming, game coverage, and special events through available sponsorship opportunities.',
   },
   {
     title: 'Promotional Opportunities',
-    body: 'Giveaways, on-air mentions, and custom activations built around your goals and budget.',
+    body: 'Explore customized campaigns, on-air mentions, giveaways, and other promotional opportunities designed to help your business stand out.',
   },
 ]
 
@@ -244,126 +197,56 @@ const useReveal = () => {
   return ref
 }
 
-const ROTATE_MS = 7000
-
-const useCarousel = (count) => {
-  const [index, setIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
-
-  const go = useCallback((next) => setIndex(((next % count) + count) % count), [count])
-
-  useEffect(() => {
-    if (paused) return undefined
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
-    const timer = window.setInterval(() => setIndex((i) => (i + 1) % count), ROTATE_MS)
-    return () => window.clearInterval(timer)
-  }, [paused, count])
-
-  return { index, go, setPaused }
-}
-
 /* ------------------------------------------------------------------ */
 /* Hero                                                                */
 /* ------------------------------------------------------------------ */
 
-function HeroVisual({ visual, active }) {
-  return (
-    <div className={`hero-frame tone-${visual.tone}${active ? ' is-active' : ''}`} aria-hidden="true">
-      <div className="hero-grid" />
-      <div className="hero-glow" />
-      <div className="hero-visual-copy">
-        <span className="hero-visual-kicker">{visual.kicker}</span>
-        <span className="hero-visual-headline">{visual.headline}</span>
-      </div>
-      <div className="hero-visual-tags">
-        {visual.tags.map((tag) => (
-          <span className="hero-tag" key={tag}>
-            <span className="tag-dot" />
-            {tag}
-          </span>
-        ))}
-      </div>
-      <div className="hero-compass">
-        <span className="ring ring-a" />
-        <span className="ring ring-b" />
-        <span className="needle" />
-      </div>
-    </div>
-  )
-}
-
 function Hero() {
-  const { index, go, setPaused } = useCarousel(slides.length)
-  const slide = slides[index]
-
   return (
-    <section
-      className="hero"
-      id="home"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
-    >
-      <div className="hero-stage">
-        <div className="hero-copy" key={slide.id}>
-          <span className="hero-eyebrow">
-            <span className="dot" /> {slide.eyebrow}
-          </span>
-          <h1>{slide.title}</h1>
-          <p className="lede">{slide.lede}</p>
+    <section className="hero" id="home">
+      <div className="hero-backdrop" aria-hidden="true">
+        <img className="hero-mountains" src={heroMountains} alt="" />
+        <CompassRose className="hero-rose" />
+      </div>
 
-          <div className="hero-actions">
-            <a className="button" href={slide.cta.href}>
-              {slide.cta.label}
+      <div className="hero-stage">
+        <div className="hero-copy">
+          <span className="hero-eyebrow" data-reveal>
+            Strategic Partnerships. Real Solutions.
+          </span>
+          <h1 data-reveal>
+            Guiding Businesses Toward Greater <em>Opportunities.</em>
+          </h1>
+          <span className="hero-rule" data-reveal />
+          <p className="lede" data-reveal>
+            Compass Affinity Partners connects innovative solutions, strategic partnerships, and
+            powerful opportunities across healthcare, real estate, and collegiate sports.
+          </p>
+          <div className="hero-actions" data-reveal>
+            <a className="button button-gold" href={homeSection('healthcare')}>
+              Explore Our Partnership Opportunities
               <ArrowIcon className="button-arrow" />
             </a>
-            {slide.secondary.external ? (
-              <a
-                className="link-button"
-                href={slide.secondary.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {slide.secondary.label}
-                <ExternalIcon className="button-arrow" />
-              </a>
-            ) : (
-              <a className="link-button" href={slide.secondary.href}>
-                {slide.secondary.label}
-              </a>
-            )}
           </div>
         </div>
 
-        <aside className="hero-visual">
-          {slides.map((s, i) => (
-            <HeroVisual key={s.id} visual={s.visual} active={i === index} />
-          ))}
-        </aside>
-      </div>
-
-      <div className="hero-controls" role="group" aria-label="Featured solutions">
-        <button type="button" className="hero-arrow" aria-label="Previous" onClick={() => go(index - 1)}>
-          <ArrowIcon style={{ transform: 'rotate(180deg)' }} />
-        </button>
-        <div className="hero-dots">
-          {slides.map((s, i) => (
-            <button
-              key={s.id}
-              type="button"
-              className={`hero-dot${i === index ? ' is-active' : ''}`}
-              aria-label={`Show ${s.eyebrow}`}
-              aria-pressed={i === index}
-              onClick={() => go(i)}
+        <nav className="hero-panels" aria-label="Partnership areas">
+          {heroPanels.map((panel, index) => (
+            <a
+              className="hero-panel"
+              key={panel.id}
+              href={homeSection(panel.id)}
+              style={{ '--delay': `${index * 90}ms` }}
+              data-reveal
             >
-              <span>{s.eyebrow}</span>
-            </button>
+              <img src={panel.image} alt="" />
+              <span className="hero-panel-label">
+                {panel.label}
+                <span className="hero-panel-rule" />
+              </span>
+            </a>
           ))}
-        </div>
-        <button type="button" className="hero-arrow" aria-label="Next" onClick={() => go(index + 1)}>
-          <ArrowIcon />
-        </button>
+        </nav>
       </div>
 
       <div className="hero-strip" data-reveal>
@@ -682,25 +565,27 @@ function App() {
                     <span className="section-num">04</span>
                     College Sports Marketing
                   </span>
-                  <h2>
-                    Increase your exposure through <em>college athletics.</em>
-                  </h2>
+                  <h2>Put Your Brand in the Game.</h2>
+                  <p className="feature-sub">
+                    Reach passionate college sports fans. Build recognition. Create new opportunities.
+                  </p>
                   <p>
-                    Compass helps businesses reach loyal, engaged fans through advertising,
-                    sponsorships, and promotional opportunities associated with college athletics on
-                    the{' '}
+                    Through our relationship with the{' '}
                     <a href={HSRN_URL} target="_blank" rel="noopener noreferrer">
                       Heritage Sports Radio Network (HSRN)
                     </a>
-                    .
+                    , Compass Affinity Partners helps businesses explore advertising, sponsorship, and
+                    promotional opportunities connected to college athletics, with a particular
+                    emphasis on the HBCU community.
                   </p>
                   <p>
-                    Whether you want season-long presence or a targeted push around a big game, we
-                    help you find the right package for your goals and budget.
+                    Whether you&rsquo;re looking for consistent brand exposure throughout the season
+                    or a targeted campaign around a major game, we&rsquo;ll help identify
+                    opportunities that align with your marketing goals and budget.
                   </p>
                   <div className="hero-actions">
                     <a className="button" href={homeSection('contact')}>
-                      Ask about sports marketing
+                      Let&rsquo;s Talk Sports Marketing
                       <ArrowIcon className="button-arrow" />
                     </a>
                   </div>
@@ -810,6 +695,30 @@ function App() {
                   </p>
                 </div>
               </div>
+
+              <a
+                className="sister-card"
+                href={AFR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-reveal
+              >
+                <img src={afrLogo} alt="AFR Benefits powered by Exectras logo" />
+                <div className="sister-copy">
+                  <span className="benefit-eyebrow">Our family of companies</span>
+                  <h3>AFR Benefits powered by Exectras</h3>
+                  <p>
+                    The same healthcare benefits, built for the people who answer the call. Through
+                    AFR Benefits, we bring Exectras virtual healthcare, mental health support,
+                    prescription savings, and life insurance to volunteer fire, EMS, rescue, and
+                    first responder organizations.
+                  </p>
+                  <span className="link-button light">
+                    Visit AFRBenefits.com
+                    <ExternalIcon className="button-arrow" />
+                  </span>
+                </div>
+              </a>
             </div>
           </section>
 

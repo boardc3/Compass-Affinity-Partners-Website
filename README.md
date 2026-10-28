@@ -29,3 +29,8 @@ visitor's email client with the message pre-filled.
 
 `src/components/CompassMark.jsx` is a placeholder compass mark in the brand's black and gold.
 Drop the official logo into `src/` and swap the import in `SiteHeader.jsx` / `SiteFooter.jsx`.
+
+## Hero images
+
+`src/assets/panel-healthcare.jpg`, `panel-real-estate.jpg`, `panel-sports.jpg` and `hero-mountains.jpg`
+are the photographic hero panels/backdrop. Replace them with same-named files to swap imagery.

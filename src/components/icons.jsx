@@ -53,3 +53,35 @@ export const ExternalIcon = (props) => (
     <path d="M19 14v5H5V5h5" />
   </svg>
 )
+
+export const HeartPulseIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M12 20s-7-4.4-7-9.6A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.4C19 15.6 12 20 12 20z" />
+    <path d="M7.5 12.5h2l1.2-2.2 1.6 4.2 1.2-2h2" />
+  </svg>
+)
+
+export const HouseIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M3.5 11.5 12 4l8.5 7.5" />
+    <path d="M6 10v10h12V10" />
+    <path d="M10 20v-6h4v6" />
+  </svg>
+)
+
+export const TrophyIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M8 4h8v5a4 4 0 0 1-8 0z" />
+    <path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4" />
+    <path d="M12 13v3M9 20h6M10 16h4v4h-4z" />
+  </svg>
+)
+
+export const PeopleIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <circle cx="9" cy="8.5" r="3" />
+    <circle cx="17" cy="9.5" r="2.4" />
+    <path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5" />
+    <path d="M15 19c0-2.2 1.6-4 4-4s3.5 1.6 3.5 4" />
+  </svg>
+)
