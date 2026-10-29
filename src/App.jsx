@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Layout from './components/Layout.jsx'
 import afrLogo from './afr-benefits-logo.png'
-import heroMountains from './assets/hero-mountains.jpg'
 import panelHealthcare from './assets/panel-healthcare.jpg'
 import panelRealEstate from './assets/panel-real-estate.jpg'
 import panelSports from './assets/panel-sports.jpg'
@@ -205,7 +204,6 @@ function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-backdrop" aria-hidden="true">
-        <img className="hero-mountains" src={heroMountains} alt="" />
         <CompassRose className="hero-rose" />
       </div>
 
