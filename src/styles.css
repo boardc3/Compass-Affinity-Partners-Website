@@ -1859,6 +1859,85 @@ h4 {
   color: var(--gold-300);
 }
 
+/* Website design CTA */
+.web-design {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--navy-900);
+}
+
+.web-design-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.web-design-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 38, 75, 0.96) 0%, rgba(8, 38, 75, 0.85) 42%, rgba(8, 38, 75, 0.35) 75%, rgba(8, 38, 75, 0.2) 100%),
+    linear-gradient(180deg, rgba(8, 38, 75, 0.35), rgba(8, 38, 75, 0.35));
+}
+
+.web-design-inner {
+  position: relative;
+}
+
+.web-design-copy {
+  max-width: 560px;
+}
+
+.web-design-copy h2 {
+  margin: 1.2rem 0 1.1rem;
+  color: var(--white);
+}
+
+.web-design-copy h2 em {
+  color: var(--gold-400);
+}
+
+.web-design-copy > p {
+  font-size: clamp(1rem, 1.3vw, 1.08rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.web-design-points {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1.3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.web-design-points li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.web-design-points li::before {
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--gold-500);
+  content: '';
+}
+
+.web-design .hero-actions {
+  margin-top: 1.6rem;
+}
+
 /* -------- Responsive -------- */
 @media (min-width: 640px) {
   .hero-strip {

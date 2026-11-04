@@ -4,6 +4,7 @@ import afrLogo from './afr-benefits-logo.png'
 import panelHealthcare from './assets/panel-healthcare.jpg'
 import panelRealEstate from './assets/panel-real-estate.jpg'
 import panelSports from './assets/panel-sports.jpg'
+import webDesignBg from './assets/web-design-bg.jpg'
 import CompassRose from './components/CompassRose.jsx'
 import {
   ShieldIcon,
@@ -161,6 +162,7 @@ const interests = [
   'Healthcare & Employee Benefits',
   'SceneSet.ai Visualization',
   'College Sports Marketing',
+  'Website Design',
   'Other Business Solutions',
   'Not sure yet — let’s talk',
 ]
@@ -601,12 +603,46 @@ function App() {
             </div>
           </section>
 
+          {/* ---------------- Website Design ---------------- */}
+          <section className="section web-design" id="web-design">
+            <img className="web-design-bg" src={webDesignBg} alt="" aria-hidden="true" />
+            <div className="web-design-overlay" aria-hidden="true" />
+            <div className="section-inner web-design-inner">
+              <div className="web-design-copy" data-reveal>
+                <span className="section-tag light">
+                  <span className="section-num">05</span>
+                  Website Design
+                </span>
+                <h2>
+                  A professional website, <em>built to bring in business.</em>
+                </h2>
+                <p>
+                  Need a clean, modern website &mdash; or a refresh of the one you have? Compass
+                  connects you with professional website design: mobile-friendly, easy to navigate,
+                  and focused on turning visitors into customers.
+                </p>
+                <ul className="web-design-points">
+                  <li>Custom design that fits your brand</li>
+                  <li>Mobile-friendly and fast</li>
+                  <li>Contact forms and lead capture built in</li>
+                  <li>Launch quickly, expand later</li>
+                </ul>
+                <div className="hero-actions">
+                  <a className="button button-gold" href={homeSection('contact')}>
+                    Start a Website Project
+                    <ArrowIcon className="button-arrow" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* ---------------- Other Business Solutions ---------------- */}
           <section className="section future" id="solutions">
             <div className="section-inner two-col">
               <div className="section-side" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">05</span>
+                  <span className="section-num">06</span>
                   Other Business Solutions
                 </span>
                 <h2>More ways to save and grow.</h2>
@@ -630,7 +666,7 @@ function App() {
             <div className="section-inner">
               <header className="section-head" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">06</span>
+                  <span className="section-num">07</span>
                   How It Works
                 </span>
                 <h2>Simple to get started. Easy to work with.</h2>
@@ -660,7 +696,7 @@ function App() {
             <div className="section-inner">
               <article className="credibility-card" data-reveal>
                 <span className="section-tag light">
-                  <span className="section-num">07</span>
+                  <span className="section-num">08</span>
                   Our Mission
                 </span>
                 <blockquote>
@@ -725,7 +761,7 @@ function App() {
             <div className="section-inner two-col">
               <div className="section-side" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">08</span>
+                  <span className="section-num">09</span>
                   Contact
                 </span>
                 <h2>Let&rsquo;s talk about your business.</h2>

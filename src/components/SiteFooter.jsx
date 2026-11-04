@@ -33,6 +33,7 @@ export default function SiteFooter() {
           <a href={homeSection('healthcare')}>Healthcare Benefits</a>
           <a href={homeSection('sceneset')}>SceneSet.ai Visualization</a>
           <a href={homeSection('sports')}>College Sports Marketing</a>
+          <a href={homeSection('web-design')}>Website Design</a>
           <a href={homeSection('solutions')}>Other Business Solutions</a>
         </div>
 
