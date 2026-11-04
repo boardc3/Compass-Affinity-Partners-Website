@@ -4,7 +4,6 @@ import afrLogo from './afr-benefits-logo.png'
 import panelHealthcare from './assets/panel-healthcare.jpg'
 import panelSceneSet from './assets/panel-sceneset.jpg'
 import panelSports from './assets/panel-sports.jpg'
-import webDesignBg from './assets/web-design-bg.jpg'
 import CompassRose from './components/CompassRose.jsx'
 import {
   ShieldIcon,
@@ -479,11 +478,16 @@ function App() {
 
           {/* ---------------- SceneSet.ai: Web Design & AI Visualization ---------------- */}
           <section className="section feature feature-sceneset" id="sceneset">
-            <img className="feature-bg" src={webDesignBg} alt="" aria-hidden="true" />
-            <div className="feature-bg-overlay" aria-hidden="true" />
+            <div className="aurora" aria-hidden="true">
+              <span className="aurora-blob aurora-gold" />
+              <span className="aurora-blob aurora-sky" />
+              <span className="aurora-blob aurora-navy" />
+              <span className="aurora-blob aurora-amber" />
+              <span className="aurora-grid" />
+            </div>
             <div className="section-inner">
               <header className="section-head feature-head" data-reveal>
-                <span className="section-tag light">
+                <span className="section-tag">
                   <span className="section-num">03</span>
                   Web Design &amp; AI Visualization
                 </span>
