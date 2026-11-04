@@ -394,12 +394,46 @@ function App() {
             </div>
           </section>
 
+          {/* ---------------- Website Design ---------------- */}
+          <section className="section web-design" id="web-design">
+            <img className="web-design-bg" src={webDesignBg} alt="" aria-hidden="true" />
+            <div className="web-design-overlay" aria-hidden="true" />
+            <div className="section-inner web-design-inner">
+              <div className="web-design-copy" data-reveal>
+                <span className="section-tag light">
+                  <span className="section-num">01</span>
+                  Website Design
+                </span>
+                <h2>
+                  A professional website, <em>built to bring in business.</em>
+                </h2>
+                <p>
+                  Need a clean, modern website &mdash; or a refresh of the one you have? Compass
+                  connects you with professional website design: mobile-friendly, easy to navigate,
+                  and focused on turning visitors into customers.
+                </p>
+                <ul className="web-design-points">
+                  <li>Custom design that fits your brand</li>
+                  <li>Mobile-friendly and fast</li>
+                  <li>Contact forms and lead capture built in</li>
+                  <li>Launch quickly, expand later</li>
+                </ul>
+                <div className="hero-actions">
+                  <a className="button button-gold" href={homeSection('contact')}>
+                    Start a Website Project
+                    <ArrowIcon className="button-arrow" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* ---------------- Healthcare Benefits ---------------- */}
           <section className="section benefits" id="healthcare">
             <div className="section-inner">
               <header className="section-head" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">01</span>
+                  <span className="section-num">02</span>
                   Exectras Healthcare Benefits
                 </span>
                 <h2>
@@ -476,7 +510,7 @@ function App() {
             <div className="section-inner two-col">
               <div className="section-side" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">02</span>
+                  <span className="section-num">03</span>
                   Why It Matters
                 </span>
                 <h2>Good people are hard to find. Harder to keep.</h2>
@@ -508,7 +542,7 @@ function App() {
               <div className="feature-grid">
                 <div className="feature-copy" data-reveal>
                   <span className="section-tag light">
-                    <span className="section-num">03</span>
+                    <span className="section-num">04</span>
                     AI-Powered Visualization
                   </span>
                   <h2>
@@ -562,7 +596,7 @@ function App() {
               <div className="feature-grid reverse">
                 <div className="feature-copy" data-reveal>
                   <span className="section-tag">
-                    <span className="section-num">04</span>
+                    <span className="section-num">05</span>
                     College Sports Marketing
                   </span>
                   <h2>Put Your Brand in the Game.</h2>
@@ -598,40 +632,6 @@ function App() {
                       <p>{point.body}</p>
                     </article>
                   ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ---------------- Website Design ---------------- */}
-          <section className="section web-design" id="web-design">
-            <img className="web-design-bg" src={webDesignBg} alt="" aria-hidden="true" />
-            <div className="web-design-overlay" aria-hidden="true" />
-            <div className="section-inner web-design-inner">
-              <div className="web-design-copy" data-reveal>
-                <span className="section-tag light">
-                  <span className="section-num">05</span>
-                  Website Design
-                </span>
-                <h2>
-                  A professional website, <em>built to bring in business.</em>
-                </h2>
-                <p>
-                  Need a clean, modern website &mdash; or a refresh of the one you have? Compass
-                  connects you with professional website design: mobile-friendly, easy to navigate,
-                  and focused on turning visitors into customers.
-                </p>
-                <ul className="web-design-points">
-                  <li>Custom design that fits your brand</li>
-                  <li>Mobile-friendly and fast</li>
-                  <li>Contact forms and lead capture built in</li>
-                  <li>Launch quickly, expand later</li>
-                </ul>
-                <div className="hero-actions">
-                  <a className="button button-gold" href={homeSection('contact')}>
-                    Start a Website Project
-                    <ArrowIcon className="button-arrow" />
-                  </a>
                 </div>
               </div>
             </div>
