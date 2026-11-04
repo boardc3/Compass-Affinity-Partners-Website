@@ -265,60 +265,35 @@ function Hero() {
 /* Contact form                                                        */
 /* ------------------------------------------------------------------ */
 
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`
-
 function ContactForm() {
-  const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const [status, setStatus] = useState('idle') // idle | sent
 
-  const handleSubmit = async (event) => {
+  // Opens the visitor's email client with the message pre-filled and addressed to Mike.
+  const handleSubmit = (event) => {
     event.preventDefault()
-    const form = event.currentTarget
-    const data = Object.fromEntries(new FormData(form).entries())
+    const data = Object.fromEntries(new FormData(event.currentTarget).entries())
     if (data._honey) return
 
-    setStatus('sending')
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          ...data,
-          _subject: `New inquiry from ${data.name} — CompassAffinityPartners.com`,
-          _template: 'table',
-          _captcha: 'false',
-        }),
-      })
-      if (!res.ok) throw new Error('Request failed')
-      setStatus('sent')
-      form.reset()
-    } catch {
-      // Fallback: open the visitor's email client with the message pre-filled.
-      const body = [
-        `Name: ${data.name}`,
-        `Company / Organization: ${data.company}`,
-        `Email: ${data.email}`,
-        `Phone: ${data.phone}`,
-        `Interested in: ${data.interest}`,
-        '',
-        data.message || '',
-      ].join('\n')
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-        'Inquiry from CompassAffinityPartners.com'
-      )}&body=${encodeURIComponent(body)}`
-      setStatus('error')
-    }
+    const subject = `Inquiry from ${data.name}${data.company ? ` — ${data.company}` : ''} (CompassAffinityPartners.com)`
+    const body = [
+      `Name: ${data.name}`,
+      `Company / Organization: ${data.company}`,
+      `Email: ${data.email}`,
+      `Phone: ${data.phone || '—'}`,
+      `Interested in: ${data.interest}`,
+      '',
+      data.message || '',
+    ].join('\n')
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    setStatus('sent')
   }
 
   return (
     <form className="demo-form" onSubmit={handleSubmit} data-reveal>
       {status === 'sent' && (
         <div className="success-message" role="status">
-          Thank you. Mike will be in touch shortly.
-        </div>
-      )}
-      {status === 'error' && (
-        <div className="success-message is-error" role="status">
-          We opened your email app with your message. If it didn&rsquo;t appear, email{' '}
+          Your email app should open with the message ready to send. If it didn&rsquo;t, email{' '}
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> or call {PHONE_DISPLAY}.
         </div>
       )}
@@ -365,7 +340,7 @@ function ContactForm() {
         {status === 'sending' ? 'Sending…' : 'Send Message'}
         <ArrowIcon className="button-arrow" />
       </button>
-      <p className="form-note">Your message goes directly to Mike Faust. No newsletters, no spam.</p>
+      <p className="form-note">Opens your email app with the message addressed to Mike Faust. No newsletters, no spam.</p>
     </form>
   )
 }

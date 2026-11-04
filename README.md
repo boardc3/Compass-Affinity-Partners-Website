@@ -20,10 +20,7 @@ npm run build:pages  # -> dist/ with /Compass-Affinity-Partners-Website/ base, f
 
 ## Contact form
 
-The form posts to FormSubmit (`https://formsubmit.co/ajax/mike@CompassAffinityPartners.com`).
-The first submission triggers a one-time activation email to that inbox — click the link in it and
-all later submissions are delivered. If the request fails, the form falls back to opening the
-visitor's email client with the message pre-filled.
+The form opens the visitor's email client (mailto:) with the message pre-filled and addressed to Mike — no backend needed.
 
 ## Logo
 
