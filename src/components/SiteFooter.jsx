@@ -31,9 +31,8 @@ export default function SiteFooter() {
         <div className="footer-col">
           <h4>Solutions</h4>
           <a href={homeSection('healthcare')}>Healthcare Benefits</a>
-          <a href={homeSection('sceneset')}>SceneSet.ai Visualization</a>
+          <a href={homeSection('sceneset')}>Web Design &amp; AI Visualization</a>
           <a href={homeSection('sports')}>College Sports Marketing</a>
-          <a href={homeSection('web-design')}>Website Design</a>
           <a href={homeSection('solutions')}>Other Business Solutions</a>
         </div>
 

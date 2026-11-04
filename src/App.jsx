@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Layout from './components/Layout.jsx'
 import afrLogo from './afr-benefits-logo.png'
 import panelHealthcare from './assets/panel-healthcare.jpg'
-import panelRealEstate from './assets/panel-real-estate.jpg'
+import panelSceneSet from './assets/panel-sceneset.jpg'
 import panelSports from './assets/panel-sports.jpg'
 import webDesignBg from './assets/web-design-bg.jpg'
 import CompassRose from './components/CompassRose.jsx'
@@ -32,7 +32,7 @@ import {
 
 const heroPanels = [
   { id: 'healthcare', label: 'Healthcare Benefits', image: panelHealthcare },
-  { id: 'sceneset', label: 'Real Estate Visualization', image: panelRealEstate },
+  { id: 'sceneset', label: 'Web Design & AI Visualization', image: panelSceneSet },
   { id: 'sports', label: 'College Sports Marketing', image: panelSports },
 ]
 
@@ -160,7 +160,7 @@ const steps = [
 
 const interests = [
   'Healthcare & Employee Benefits',
-  'SceneSet.ai Visualization',
+  'AI Visualization (SceneSet.ai)',
   'College Sports Marketing',
   'Website Design',
   'Other Business Solutions',
@@ -369,46 +369,12 @@ function App() {
             </div>
           </section>
 
-          {/* ---------------- Website Design ---------------- */}
-          <section className="section web-design" id="web-design">
-            <img className="web-design-bg" src={webDesignBg} alt="" aria-hidden="true" />
-            <div className="web-design-overlay" aria-hidden="true" />
-            <div className="section-inner web-design-inner">
-              <div className="web-design-copy" data-reveal>
-                <span className="section-tag light">
-                  <span className="section-num">01</span>
-                  Website Design
-                </span>
-                <h2>
-                  A professional website, <em>built to bring in business.</em>
-                </h2>
-                <p>
-                  Need a clean, modern website &mdash; or a refresh of the one you have? Compass
-                  connects you with professional website design: mobile-friendly, easy to navigate,
-                  and focused on turning visitors into customers.
-                </p>
-                <ul className="web-design-points">
-                  <li>Custom design that fits your brand</li>
-                  <li>Mobile-friendly and fast</li>
-                  <li>Contact forms and lead capture built in</li>
-                  <li>Launch quickly, expand later</li>
-                </ul>
-                <div className="hero-actions">
-                  <a className="button button-gold" href={homeSection('contact')}>
-                    Start a Website Project
-                    <ArrowIcon className="button-arrow" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* ---------------- Healthcare Benefits ---------------- */}
           <section className="section benefits" id="healthcare">
             <div className="section-inner">
               <header className="section-head" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">02</span>
+                  <span className="section-num">01</span>
                   Exectras Healthcare Benefits
                 </span>
                 <h2>
@@ -485,7 +451,7 @@ function App() {
             <div className="section-inner two-col">
               <div className="section-side" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">03</span>
+                  <span className="section-num">02</span>
                   Why It Matters
                 </span>
                 <h2>Good people are hard to find. Harder to keep.</h2>
@@ -511,56 +477,74 @@ function App() {
             </div>
           </section>
 
-          {/* ---------------- SceneSet.ai ---------------- */}
+          {/* ---------------- SceneSet.ai: Web Design & AI Visualization ---------------- */}
           <section className="section feature feature-sceneset" id="sceneset">
+            <img className="feature-bg" src={webDesignBg} alt="" aria-hidden="true" />
+            <div className="feature-bg-overlay" aria-hidden="true" />
             <div className="section-inner">
-              <div className="feature-grid">
-                <div className="feature-copy" data-reveal>
-                  <span className="section-tag light">
-                    <span className="section-num">04</span>
-                    AI-Powered Visualization
-                  </span>
-                  <h2>
-                    Show it before you build it, with{' '}
-                    <a href={SCENESET_URL} target="_blank" rel="noopener noreferrer" className="inline-brand">
-                      SceneSet.ai
-                    </a>
-                  </h2>
+              <header className="section-head feature-head" data-reveal>
+                <span className="section-tag light">
+                  <span className="section-num">03</span>
+                  Web Design &amp; AI Visualization
+                </span>
+                <h2>
+                  Show it before you build it. Sell it once you do &mdash; with{' '}
+                  <a href={SCENESET_URL} target="_blank" rel="noopener noreferrer" className="inline-brand">
+                    SceneSet.ai
+                  </a>
+                </h2>
+                <p className="section-lede">
+                  Through our partner{' '}
+                  <a href={SCENESET_URL} target="_blank" rel="noopener noreferrer">SceneSet.ai</a>,
+                  Compass gives businesses two ways to look their best: AI-powered visualization that
+                  brings properties, projects, and products to life, and professional website design
+                  that turns visitors into customers.
+                </p>
+              </header>
+
+              <div className="offer-grid">
+                <article className="offer-card" data-reveal>
+                  <span className="benefit-eyebrow">AI-Powered Visualization</span>
+                  <h3>Photorealistic imagery and video &mdash; in days, not months</h3>
                   <p>
-                    <a href={SCENESET_URL} target="_blank" rel="noopener noreferrer">SceneSet.ai</a>{' '}
-                    uses AI-powered visualization to help businesses showcase properties, projects,
-                    and products with photorealistic imagery and video &mdash; produced in days, not
-                    months, at a fraction of traditional production cost.
+                    Turn plans, photos, and ideas into visuals you can sell the vision with while
+                    it&rsquo;s still a vision, at a fraction of traditional production cost.
                   </p>
-                  <p>
-                    From real estate listings and new developments to product launches and marketing
-                    campaigns, SceneSet.ai gives you the visuals to sell the vision while it&rsquo;s
-                    still a vision.
-                  </p>
-                  <div className="hero-actions">
-                    <a
-                      className="button button-gold"
-                      href={SCENESET_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Visit SceneSet.ai
+                  <ul>
+                    {sceneSetPoints.map((point) => (
+                      <li key={point.title}>
+                        <strong>{point.title}</strong> &mdash; {point.body}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="offer-actions">
+                    <a className="button button-gold" href={SCENESET_URL} target="_blank" rel="noopener noreferrer">
+                      See SceneSet.ai
                       <ExternalIcon className="button-arrow" />
                     </a>
-                    <a className="link-button light" href={homeSection('contact')}>
-                      Ask Compass about a project
+                  </div>
+                </article>
+
+                <article className="offer-card" data-reveal style={{ '--delay': '90ms' }}>
+                  <span className="benefit-eyebrow">Website Design</span>
+                  <h3>A professional website, built to bring in business</h3>
+                  <p>
+                    Need a clean, modern website &mdash; or a refresh of the one you have?
+                    Mobile-friendly, easy to navigate, and focused on turning visitors into customers.
+                  </p>
+                  <ul>
+                    <li><strong>Custom design</strong> &mdash; built around your brand, not a template.</li>
+                    <li><strong>Mobile-friendly and fast</strong> &mdash; looks sharp on every screen.</li>
+                    <li><strong>Lead capture built in</strong> &mdash; contact forms and calls to action that work.</li>
+                    <li><strong>Launch quickly, expand later</strong> &mdash; start simple and grow as you do.</li>
+                  </ul>
+                  <div className="offer-actions">
+                    <a className="button button-gold" href={homeSection('contact')}>
+                      Start a Website Project
+                      <ArrowIcon className="button-arrow" />
                     </a>
                   </div>
-                </div>
-
-                <div className="feature-cards" data-reveal>
-                  {sceneSetPoints.map((point, index) => (
-                    <article className="feature-card" key={point.title} style={{ '--delay': `${index * 80}ms` }}>
-                      <h3>{point.title}</h3>
-                      <p>{point.body}</p>
-                    </article>
-                  ))}
-                </div>
+                </article>
               </div>
             </div>
           </section>
@@ -571,7 +555,7 @@ function App() {
               <div className="feature-grid reverse">
                 <div className="feature-copy" data-reveal>
                   <span className="section-tag">
-                    <span className="section-num">05</span>
+                    <span className="section-num">04</span>
                     College Sports Marketing
                   </span>
                   <h2>Put Your Brand in the Game.</h2>
@@ -617,7 +601,7 @@ function App() {
             <div className="section-inner two-col">
               <div className="section-side" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">06</span>
+                  <span className="section-num">05</span>
                   Other Business Solutions
                 </span>
                 <h2>More ways to save and grow.</h2>
@@ -641,7 +625,7 @@ function App() {
             <div className="section-inner">
               <header className="section-head" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">07</span>
+                  <span className="section-num">06</span>
                   How It Works
                 </span>
                 <h2>Simple to get started. Easy to work with.</h2>
@@ -671,7 +655,7 @@ function App() {
             <div className="section-inner">
               <article className="credibility-card" data-reveal>
                 <span className="section-tag light">
-                  <span className="section-num">08</span>
+                  <span className="section-num">07</span>
                   Our Mission
                 </span>
                 <blockquote>
@@ -736,7 +720,7 @@ function App() {
             <div className="section-inner two-col">
               <div className="section-side" data-reveal>
                 <span className="section-tag">
-                  <span className="section-num">09</span>
+                  <span className="section-num">08</span>
                   Contact
                 </span>
                 <h2>Let&rsquo;s talk about your business.</h2>

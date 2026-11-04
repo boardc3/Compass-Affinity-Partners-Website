@@ -5,7 +5,7 @@ import { homePath, homeSection } from '../lib/paths.js'
 
 const navItems = [
   { id: 'healthcare', label: 'Healthcare Benefits', Icon: HeartPulseIcon },
-  { id: 'sceneset', label: 'Real Estate Visualization', Icon: HouseIcon },
+  { id: 'sceneset', label: 'Web Design & AI Visualization', Icon: HouseIcon },
   { id: 'sports', label: 'College Sports Marketing', Icon: TrophyIcon },
   { id: 'about', label: 'About Compass', Icon: PeopleIcon },
 ]

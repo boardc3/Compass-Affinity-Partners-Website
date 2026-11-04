@@ -29,5 +29,5 @@ Drop the official logo into `src/` and swap the import in `SiteHeader.jsx` / `Si
 
 ## Hero images
 
-`src/assets/panel-healthcare.jpg`, `panel-real-estate.jpg` and `panel-sports.jpg`
+`src/assets/panel-healthcare.jpg`, `panel-sceneset.jpg` and `panel-sports.jpg`
 are the photographic hero panels. Replace them with same-named files to swap imagery.
