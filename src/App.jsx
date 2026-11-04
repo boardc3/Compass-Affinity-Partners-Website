@@ -4,6 +4,11 @@ import afrLogo from './afr-benefits-logo.png'
 import panelHealthcare from './assets/panel-healthcare.jpg'
 import panelSceneSet from './assets/panel-sceneset.jpg'
 import panelSports from './assets/panel-sports.jpg'
+import renderBefore from './assets/render-before.jpg'
+import renderAfter from './assets/render-after.jpg'
+import reel01 from './assets/reel-01.jpg'
+import reel02 from './assets/reel-02.jpg'
+import reel03 from './assets/reel-03.jpg'
 import CompassRose from './components/CompassRose.jsx'
 import {
   ShieldIcon,
@@ -125,6 +130,12 @@ const sceneSetPoints = [
     title: 'Products',
     body: 'Launch-ready product visuals and cinematic video without a photo shoot, a studio, or weeks of lead time.',
   },
+]
+
+const reels = [
+  { image: reel01, label: 'Twilight arrival', tag: 'AI render' },
+  { image: reel02, label: 'Product still', tag: 'AI render' },
+  { image: reel03, label: 'Game-day atmosphere', tag: 'AI render' },
 ]
 
 const sportsPoints = [
@@ -506,8 +517,84 @@ function App() {
                 </p>
               </header>
 
+              <div className="showcase" data-reveal>
+                <div className="showcase-browser">
+                  <div className="showcase-chrome">
+                    <span className="showcase-dots">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    <span className="showcase-url">
+                      <span className="showcase-url-text">yourbusiness.com</span>
+                    </span>
+                    <span className="showcase-badge">Live preview</span>
+                  </div>
+                  <div className="showcase-site">
+                    <div className="showcase-nav">
+                      <span className="showcase-logo" />
+                      <span className="showcase-navlinks">
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                      <span className="showcase-cta" />
+                    </div>
+                    <div className="showcase-hero">
+                      <img className="showcase-before" src={renderBefore} alt="" aria-hidden="true" />
+                      <img className="showcase-after" src={renderAfter} alt="Photorealistic AI rendering of a modern home at twilight" />
+                      <span className="showcase-scan" aria-hidden="true" />
+                      <span className="showcase-chip showcase-chip-a">
+                        <span className="chip-dot" />
+                        Rendering
+                      </span>
+                      <span className="showcase-chip showcase-chip-b">01 &middot; Twilight exterior</span>
+                      <div className="showcase-copy">
+                        <span className="showcase-line showcase-line-lg" />
+                        <span className="showcase-line" />
+                        <span className="showcase-btn" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="showcase-side">
+                  <div className="showcase-reels">
+                    {reels.map((reel, index) => (
+                      <figure className="reel" key={reel.label} style={{ '--delay': `${index * 120}ms` }}>
+                        <img src={reel.image} alt="" />
+                        <figcaption>
+                          <span className="reel-num">Reel {String(index + 1).padStart(2, '0')}</span>
+                          <span className="reel-label">{reel.label}</span>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+
+                  <a
+                    className="featured-project"
+                    href="https://13511mulholland.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="benefit-eyebrow">Featured project</span>
+                    <strong>13511 Mulholland Drive</strong>
+                    <span>
+                      A cinematic listing site by SceneSet.ai: video hero, AI-generated stills, an
+                      interactive neighborhood map, and an editorial gallery.
+                    </span>
+                    <span className="link-button">
+                      View the live site
+                      <ExternalIcon className="button-arrow" />
+                    </span>
+                  </a>
+                </div>
+              </div>
+
               <div className="offer-grid">
                 <article className="offer-card" data-reveal>
+                  <span className="offer-num">01</span>
                   <span className="benefit-eyebrow">AI-Powered Visualization</span>
                   <h3>Photorealistic imagery and video &mdash; in days, not months</h3>
                   <p>
@@ -521,6 +608,11 @@ function App() {
                       </li>
                     ))}
                   </ul>
+                  <div className="tag-row">
+                    <span>Photorealistic renders</span>
+                    <span>Cinematic video</span>
+                    <span>Virtual staging</span>
+                  </div>
                   <div className="offer-actions">
                     <a className="button button-gold" href={SCENESET_URL} target="_blank" rel="noopener noreferrer">
                       See SceneSet.ai
@@ -530,6 +622,7 @@ function App() {
                 </article>
 
                 <article className="offer-card" data-reveal style={{ '--delay': '90ms' }}>
+                  <span className="offer-num">02</span>
                   <span className="benefit-eyebrow">Website Design</span>
                   <h3>A professional website, built to bring in business</h3>
                   <p>
@@ -542,6 +635,11 @@ function App() {
                     <li><strong>Lead capture built in</strong> &mdash; contact forms and calls to action that work.</li>
                     <li><strong>Launch quickly, expand later</strong> &mdash; start simple and grow as you do.</li>
                   </ul>
+                  <div className="tag-row">
+                    <span>Custom design</span>
+                    <span>Mobile-first</span>
+                    <span>Lead capture</span>
+                  </div>
                   <div className="offer-actions">
                     <a className="button button-gold" href={homeSection('contact')}>
                       Start a Website Project
